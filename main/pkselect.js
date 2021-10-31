@@ -282,50 +282,74 @@ if (json['status'] == 400) {
   }
 
   var row_1 = new Array(10000);
+  let row
   var th = new Array(3);
   // th ) 강의 과목 , 강의 주차, 마감기한 //
   for (var i = 0; i < 3; i++) {
     row_1[0] = document.createElement('tr');
-    for (var p = 0; p < 3; p++) {
-      th[p] = document.createElement('th');
-      th[p].innerHTML = T[i][p + 1]
-      document.getElementById(T[i][4]).appendChild(th[p]);
-    }
-  }
-
-  for (var i = 0; i < 3; i++) {
-    //lms_data 길이 (열), 3행
-    var td = Array.from(Array(answer[0].length), () => new Array(3));
-    for (let k = 0; k < answer[i].length; k++) {
-      if (answer[i][k]['class'] == T[i][0]) {
-        //행 제작
-        row_1[k] = document.createElement('tr');
-        // td 3개 제작 ( 강의 과목 , 강의 주차, 마감기한에 들어갈 칸 )
-        for (var p = 0; p < 3; p++) {
-          td[k][p] = document.createElement('td');
-        }
-        if (k == 0) {
-          td[k][0].innerHTML = answer[i][k]['subject_name'];
-        } else if (answer[i][k - 1]['subject_name'] == answer[i][k]['subject_name']) {
-          td[k][0].innerHTML = "";
-        } else {
-          td[k][0].innerHTML = answer[i][k]['subject_name'];
-        }
-        if (answer[i][k]['class'] == '시험') {
-          var Test_deadline_before = answer[i][k]['date_deadline'];
-          var Test_deadline_after = Test_deadline_before.split(', ');
-          td[k][1].innerHTML = Test_deadline_after[1];
-          td[k][2].innerHTML = Test_deadline_after[0];
-        } else {
-          td[k][1].innerHTML = answer[i][k]['context'];
-          td[k][2].innerHTML = answer[i][k]['date_deadline'];
-        }
-        document.getElementById(T[i][4]).appendChild(row_1[k]);
-        for (var p = 0; p < 3; p++) {
-          row_1[k].appendChild(td[k][p]);
-        }
+    if (answer[i].length == 0) {
+      row = document.createElement('tr');
+      continue;
+    } else {
+      for (var p = 0; p < 3; p++) {
+        th[p] = document.createElement('th');
+        th[p].innerHTML = T[i][p + 1]
+        document.getElementById(T[i][4]).appendChild(th[p]);
       }
     }
   }
 
+  // (answer[i].length != 0){
+  //   row_1[k] = document.createElement('tr');
+  //   row_1[k].innerHTML = "축하합니당"
+  //   document.getElementById(T[i][4]).appendChild(row_1[k]);
+  // }else
+
+  for (var i = 0; i < 3; i++) {
+    //lms_data 길이 (열), 3행
+    var td = Array.from(Array(answer[0].length), () => new Array(3));
+    if (answer[i].length == 0) {
+      let td1
+      row = document.createElement('tr');
+      td1 = document.createElement('td');
+      td1.innerHTML = "모두 완료하셨습니다 :)";
+      document.getElementById(T[i][4]).appendChild(row);
+      row.appendChild(td1);
+    } else {
+      for (let k = 0; k < answer[i].length; k++) {
+        if (answer[i][k]['class'] == T[i][0]) {
+          //행 제작
+          row_1[k] = document.createElement('tr');
+          // td 3개 제작 ( 강의 과목 , 강의 주차, 마감기한에 들어갈 칸 )
+          for (var p = 0; p < 3; p++) {
+            td[k][p] = document.createElement('td');
+          }
+          if (k == 0) {
+            var Subject_name = answer[i][k]['subject_name'].split(']');
+            td[k][0].innerHTML = Subject_name[1];
+          } else if (answer[i][k - 1]['subject_name'] == answer[i][k]['subject_name']) {
+            td[k][0].innerHTML = "";
+          } else {
+            var Subject_name = answer[i][k]['subject_name'].split(']');
+            td[k][0].innerHTML = Subject_name[1];
+          }
+          if (answer[i][k]['class'] == '시험') {
+            var Test_deadline_before = answer[i][k]['date_deadline'];
+            var Test_deadline_after = Test_deadline_before.split(', ');
+            td[k][1].innerHTML = Test_deadline_after[1];
+            var deadline = Test_deadline_after[0].split(' ')
+            td[k][2].innerHTML = deadline[0] + "<br>" + deadline[1] + " " + deadline[2];
+          } else {
+            td[k][1].innerHTML = answer[i][k]['context'];
+            var deadline = answer[i][k]['date_deadline'].split(' ')
+            td[k][2].innerHTML = deadline[0] + "<br>" + deadline[1] + " " + deadline[2];
+          }
+          document.getElementById(T[i][4]).appendChild(row_1[k]);
+          for (var p = 0; p < 3; p++) {
+            row_1[k].appendChild(td[k][p]);
+          }
+        }
+      }
+    }
+  }
 }
