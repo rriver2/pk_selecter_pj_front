@@ -326,6 +326,7 @@ a {
   display: none;
   overflow-x: hidden;
   flex-direction: column;
+  align-items: center;
 }
 
 table {
@@ -340,12 +341,9 @@ table {
 }
 
 .tables {
-  width: 100%;
   padding-top: 5%;
   padding-bottom: 5%;
   position: relative;
-  left: 50%;
-  transform: translateX(-50%);
   order: 2;
 }
 
@@ -383,8 +381,6 @@ tr:nth-child(odd) {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
-
-
 
 
 #server_error {
@@ -425,16 +421,6 @@ tr:nth-child(odd) {
   cursor: pointer;
 }
 
-.clearfix:after {
-  content: '';
-  display: block;
-  clear: both;
-  float: none;
-}
-
-
-
-
 
 
 /*//////////////////////////////////*/
@@ -452,7 +438,7 @@ tr:nth-child(odd) {
 .my-calendar {
   width: 76%;
   height: 1200px;
-  margin: 3%;
+  margin-top: 8%;
   padding: 20px 20px 10px;
   text-align: center;
   font-weight: 800;
@@ -460,7 +446,6 @@ tr:nth-child(odd) {
   position: relative;
   border-radius: 15px;
   order: 1;
-  left: 7%;
   background-color: white;
 }
 
@@ -479,23 +464,24 @@ tr:nth-child(odd) {
 }
 
 #clicked-date .cal-day {
-  font-size: 3rem;
+  margin-bottom: 2%;
+  font-size: 2rem;
 }
 
 #clicked-date .cal-date {
-  font-size: 130px;
+  font-size: 2rem;
 }
 
 #Context-box {
   width: 100%;
   height: 80%;
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
 .ctr-box {
   padding: 0 16px;
   margin-bottom: 20px;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .ctr-box .btn-cal {
@@ -504,7 +490,7 @@ tr:nth-child(odd) {
   width: 25px;
   height: 25px;
   margin-top: 5px;
-  font-size: 16px;
+  font-size: 2rem;
   cursor: pointer;
   border: none;
   background: none;
@@ -519,7 +505,7 @@ tr:nth-child(odd) {
   height: 100%;
   line-height: 60px;
   font-weight: bold;
-  font-size: 4rem;
+  font-size: 2rem;
 }
 
 .ctr-box .btn-cal.next {
@@ -537,14 +523,14 @@ tr:nth-child(odd) {
 .cal-table th {
   width: 14.2857%;
   padding-bottom: 5px;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 600;
 }
 
 .cal-table td {
   padding: 3px 0;
   height: 100px;
-  font-size: 3rem;
+  font-size: 2rem;
   vertical-align: middle;
 }
 
@@ -592,17 +578,161 @@ tr:nth-child(odd) {
 }
 
 
-
-
-
-
-
-/* ======== Calendar ======== */
-/*PC버전 캘린더 코드*/
+/*  pc로 제작시 */
 @media (hover: hover) {
+  body {
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
+  #mainpage {
+    height: auto;
+    width: auto;
+  }
+
+  #total {
+    height: auto;
+  }
+
+  .form-panel.one:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    background: white;
+    width: 600px;
+    height: 429.91px;
+  }
+
+  .form {
+    width: 600px;
+    height: 429.91px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .form-toggle {
+    top: 60px;
+    right: 60px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .form-toggle:before,
+  .form-toggle:after {
+    width: 30px;
+    height: 4px;
+  }
+
+  .two .form-group {
+    margin: 0 0 20px;
+  }
+
+  .form-group input {
+    width: 450px;
+  }
+
+  .form-group label {
+    font-size: 15px;
+  }
+
+  #introduction {
+    margin: 0 0 10px;
+    padding: 12px 20px;
+    font-size: 13px;
+  }
+
+  .form-group button {
+    margin: 0;
+  }
+
+  .form-panel.two {
+    left: 95%;
+    background: #14274E;
+    width: 600px;
+    height: 429.91px;
+    padding: 30px 120px 60px 60px;
+    transition: 0.3s cubic-bezier(0.4, 0, 1, 1);
+    cursor: pointer;
+    display: inline;
+  }
+
+  .form-panel.two:before,
+  .form-panel.two:after {
+    left: 1.5%;
+  }
+
+  .form-panel.two.active {
+    padding: 30px 105px 60px 60px;
+    left: 7%;
+    width: 600px;
+    height: 429.91px;
+  }
+
+  .form-header h1 {
+    margin: 20px;
+    font-size: 30px;
+  }
+
+  .one .form-group label {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+
+  .form-group button {
+    height: auto;
+  }
+
+  .form-group input {
+    height: auto;
+  }
+
+  #over {
+    font-size: 25px;
+  }
+
+  .tables {
+    position: relative;
+    margin-left: 5%;
+  }
+
+  th,
+  td {
+    font-size: 1rem;
+  }
+
+  table {
+    word-break: break-all;
+    border-style: none;
+    margin-bottom: 15px;
+    table-layout: fixed;
+    width: 550px;
+  }
+
+  /* error alert */
+  #server_error {
+    width: 300px;
+    height: 200px;
+    align-items: center;
+    position: fixed;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+  }
+
+  #mainpagebutton {
+    width: 100px;
+    height: 40px;
+    font-size: inherit;
+  }
+
+  /* ======== Calendar ======== */
+  /*PC버전 캘린더 코드*/
   #secondpage {
     flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
   }
 
   #content {
@@ -618,14 +748,11 @@ tr:nth-child(odd) {
   .my-calendar {
     width: 400px;
     height: 640px;
-    margin: 30px;
-    padding: 20px 20px 10px;
     text-align: center;
     font-weight: 800;
     cursor: default;
     border-radius: 15px;
     z-index: 3;
-    left: 14%;
   }
 
   .my-calendar #clicked-date {
@@ -636,7 +763,6 @@ tr:nth-child(odd) {
     height: 193px;
     padding: 10px 0 20px;
     background: rgba(0, 0, 0, 0.1);
-    position: fixed;
   }
 
   .my-calendar .calendar-box {
@@ -757,158 +883,11 @@ tr:nth-child(odd) {
     height: 8px;
     border-radius: 50%;
   }
-}
 
-
-
-
-
-/*  pc로 제작시 */
-@media (hover: hover) {
-  body {
-    font-size: 14px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  #mainpage {
-    height: auto;
-    width: auto;
-  }
-
-  #total {
-    height: auto;
-  }
-
-  .form-panel.one:before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: none;
-    background: white;
-    width: 600px;
-    height: 429.91px;
-  }
-
-  .form {
-    width: 600px;
-    height: 429.91px;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
-  }
-
-  .form-toggle {
-    top: 60px;
-    right: 60px;
-    width: 60px;
-    height: 60px;
-  }
-
-  .form-toggle:before,
-  .form-toggle:after {
-    width: 30px;
-    height: 4px;
-  }
-
-  .two .form-group {
-    margin: 0 0 20px;
-  }
-
-  .form-group input {
-    width: 450px;
-  }
-
-  .form-group label {
-    font-size: 15px;
-  }
-
-  #introduction {
-    margin: 0 0 10px;
-    padding: 12px 20px;
-    font-size: 13px;
-  }
-
-  .form-group button {
-    margin: 0;
-  }
-
-  .form-panel.two {
-    left: 95%;
-    background: #14274E;
-    width: 600px;
-    height: 429.91px;
-    padding: 30px 120px 60px 60px;
-    transition: 0.3s cubic-bezier(0.4, 0, 1, 1);
-    cursor: pointer;
-    display: inline;
-  }
-
-  .form-panel.two:before,
-  .form-panel.two:after {
-    left: 1.5%;
-  }
-
-  .form-panel.two.active {
-    padding: 30px 105px 60px 60px;
-    left: 7%;
-    width: 600px;
-    height: 429.91px;
-  }
-
-  .form-header h1 {
-    margin: 20px;
-    font-size: 30px;
-  }
-
-  .one .form-group label {
-    font-size: 12px;
-    margin-bottom: 5px;
-  }
-
-  .form-group button {
-    height: auto;
-  }
-
-  .form-group input {
-    height: auto;
-  }
-
-  #over {
-    font-size: 25px;
-  }
-
-  .tables {
-    position: relative;
-    left: 67%;
-  }
-
-  th,
-  td {
-    font-size: 1rem;
-  }
-
-  table {
-    word-break: break-all;
-    border-style: none;
-    margin-bottom: 15px;
-    table-layout: fixed;
-    width: 550px;
-  }
-
-  /* error alert */
-  #server_error {
-    width: 300px;
-    height: 200px;
-    align-items: center;
-    position: fixed;
-    margin: 0 auto;
-    left: 0;
-    right: 0;
-  }
-
-  #mainpagebutton {
-    width: 100px;
-    height: 40px;
-    font-size: inherit;
+  @media screen and (max-width: 1000px) {
+    #secondpage {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 }
