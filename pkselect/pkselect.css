@@ -18,6 +18,7 @@ html {
   padding: 0;
 }
 
+/* 폰트 */
 @font-face {
   font-family: "logofont";
   src: url("logofont.ttf") format('truetype');
@@ -37,6 +38,7 @@ body {
   height: 100%;
 }
 
+/* mainpage(모바일) */
 #mainpage {
   height: 100%;
   width: 100%;
@@ -168,9 +170,9 @@ body {
   box-sizing: border-box;
   padding: 20px 20px;
   font-family: inherit;
-  font-size: 28px;
+  font-size: 25px;
   line-height: inherit;
-  word-break: break-all;
+  word-break: keep-all;
 }
 
 a {
@@ -296,6 +298,7 @@ a {
   margin-right: 20px;
 }
 
+/* 로딩(모바일) */
 #over {
   display: none;
   font-size: 40px;
@@ -320,16 +323,18 @@ a {
 
 
 
-
+/* secondpage(모바일) */
 #secondpage {
   font-size: 14px;
+  font-family: "baiscfont";
   display: none;
-  overflow-x: hidden;
   flex-direction: column;
   align-items: center;
 }
 
+/* table(모바일) */
 table {
+  font-family: inherit;
   word-break: break-all;
   border-style: none;
   margin-bottom: 15px;
@@ -341,7 +346,7 @@ table {
 }
 
 .tables {
-  padding-top: 5%;
+  font-family: inherit;
   padding-bottom: 5%;
   position: relative;
   order: 2;
@@ -349,6 +354,7 @@ table {
 
 th,
 td {
+  font-family: inherit;
   padding: 6px;
   text-align: center;
   vertical-align: middle;
@@ -358,22 +364,25 @@ td {
 }
 
 #tableL th {
-  background-color: #3d72b3;
+  background-color: #264a94;
+  color: #fff;
 }
 
 #tableHW th {
-  background-color: #59995f;
+  background-color: #4b8050;
+  color: #fff;
 }
 
 #tableT th {
-  background-color: #c95a49;
+  background-color: #b54c3c;
+  color: #fff;
 }
 
-tr:nth-child(even) {
+.tables tr:nth-child(even) {
   background-color: #ffffff;
 }
 
-tr:nth-child(odd) {
+.tables tr:nth-child(odd) {
   background-color: #fafafa;
 }
 
@@ -383,65 +392,40 @@ tr:nth-child(odd) {
 }
 
 
-#server_error {
-  display: flex;
-  width: 600px;
-  height: 400px;
-  box-shadow: 10px 10px 15px rgb(0 0 0 / 20%);
-  z-index: 20;
-  position: relative;
-  background: #FFFFFF;
-  border-radius: 4px;
-  box-sizing: border-box;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  margin-left: 20%;
-  margin-top: 0%;
-  left: 0;
-  right: 0;
-}
 
-#server_error>div {
-  margin-bottom: 30px;
-}
-
-#mainpagebutton {
-  outline: none;
-  background: #14274E;
-  width: 200px;
-  height: 80px;
-  font-size: 30px;
-  border: 0;
-  border-radius: 6px;
-  padding: 12px 20px;
-  padding-top: 14px;
-  color: #FFFFFF;
-  cursor: pointer;
-}
-
-
-
-/*//////////////////////////////////*/
-/*모바일 버전 캘린더 코드*/
+/* 캘린더(모바일) */
 #content {
+  font-family: "baiscfont";
   margin: 10px;
   border-radius: 10px;
-  background-color: #fff;
+  background-color: #f5f5f5;
+  color: #000000;
+}
+
+#Context-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+#Context-box::-webkit-scrollbar-thumb {
+  background-color: #f5f5f5;
+  border-radius: 5px;
+}
+
+#Context-box::-webkit-scrollbar-track {
+  background-color: #14274E;
 }
 
 #content:first-child {
   margin-top: 15px;
 }
 
-.my-calendar {
+#my-calendar {
+  font-family: "baiscfont";
   width: 76%;
-  height: 1200px;
   margin-top: 8%;
   padding: 20px 20px 10px;
   text-align: center;
-  font-weight: 800;
+  font-weight: 500;
   cursor: default;
   position: relative;
   border-radius: 15px;
@@ -449,38 +433,24 @@ tr:nth-child(odd) {
   background-color: white;
 }
 
-.my-calendar #clicked-date {
+#clicked-date {
+  display: none;
+  font-family: "baiscfont";
   border-radius: 25px;
-  margin-top: 105%;
-  width: 91.5%;
-  height: 27%;
   padding: 10px 15px 26px;
-  background: rgba(0, 0, 0, 0.1);
-  position: absolute;
-}
-
-.my-calendar .calendar-box {
-  width: 100%;
+  background: #14274E;
+  color: #fff;
 }
 
 #clicked-date .cal-day {
+  font-family: inherit;
   margin-bottom: 2%;
-  font-size: 2rem;
-}
-
-#clicked-date .cal-date {
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 
 #Context-box {
-  width: 100%;
-  height: 80%;
-  font-size: 2rem;
-}
-
-.ctr-box {
-  padding: 0 16px;
-  margin-bottom: 20px;
+  /* font-family: inherit; */
+  height: 300px;
   font-size: 2rem;
 }
 
@@ -496,6 +466,16 @@ tr:nth-child(odd) {
   background: none;
 }
 
+.ctr-box {
+  background-color: #14274E;
+  color: #fff;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
 .ctr-box .btn-cal:after {
   content: '<';
   position: absolute;
@@ -503,7 +483,7 @@ tr:nth-child(odd) {
   left: 0;
   width: 100%;
   height: 100%;
-  line-height: 60px;
+  line-height: 40px;
   font-weight: bold;
   font-size: 2rem;
 }
@@ -524,7 +504,6 @@ tr:nth-child(odd) {
   width: 14.2857%;
   padding-bottom: 5px;
   font-size: 2rem;
-  font-weight: 600;
 }
 
 .cal-table td {
@@ -578,6 +557,8 @@ tr:nth-child(odd) {
 }
 
 
+
+
 /*  pc로 제작시 */
 @media (hover: hover) {
   body {
@@ -594,6 +575,10 @@ tr:nth-child(odd) {
 
   #total {
     height: auto;
+  }
+
+  .form-group button {
+    height: 50px;
   }
 
   .form-panel.one:before {
@@ -680,10 +665,6 @@ tr:nth-child(odd) {
     margin-bottom: 5px;
   }
 
-  .form-group button {
-    height: auto;
-  }
-
   .form-group input {
     height: auto;
   }
@@ -708,6 +689,7 @@ tr:nth-child(odd) {
     margin-bottom: 15px;
     table-layout: fixed;
     width: 550px;
+    margin-top: 0.5%;
   }
 
   /* error alert */
@@ -727,167 +709,75 @@ tr:nth-child(odd) {
     font-size: inherit;
   }
 
-  /* ======== Calendar ======== */
-  /*PC버전 캘린더 코드*/
+  /* 캘린더(pc) */
   #secondpage {
     flex-direction: row;
     justify-content: center;
     align-items: stretch;
   }
 
-  #content {
-    margin: 10px;
-    border-radius: 10px;
-    background-color: #fff;
-  }
-
-  #content:first-child {
-    margin-top: 15px;
-  }
-
-  .my-calendar {
+  #my-calendar {
     width: 400px;
-    height: 640px;
+    height: 100%;
     text-align: center;
-    font-weight: 800;
-    cursor: default;
-    border-radius: 15px;
     z-index: 3;
+    position: sticky;
+    top: 0.5%;
+    margin-top: 0.5%;
   }
 
-  .my-calendar #clicked-date {
-    border-radius: 25px;
-    margin-top: 415px;
-    float: left;
-    width: 400px;
-    height: 193px;
-    padding: 10px 0 20px;
-    background: rgba(0, 0, 0, 0.1);
-  }
-
-  .my-calendar .calendar-box {
-    float: right;
-    width: 400px;
-    padding-left: 30px;
+  #clicked-date {
+    height: 30%;
   }
 
   #clicked-date .cal-day {
-    font-size: 24px;
-  }
-
-  #clicked-date .cal-date {
-    font-size: 130px;
+    font-size: 1.5rem;
   }
 
   #Context-box {
-    width: 400px;
     height: 160px;
-    font-size: 18px;
+    font-size: 1rem;
   }
 
   .ctr-box {
-    padding: 0 16px;
-    margin-bottom: 20px;
     font-size: 20px;
   }
 
   .ctr-box .btn-cal {
-    position: relative;
-    float: left;
-    width: 25px;
-    height: 25px;
-    margin-top: 5px;
     font-size: 16px;
-    cursor: pointer;
-    border: none;
-    background: none;
   }
 
   .ctr-box .btn-cal:after {
-    content: '<';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     line-height: 25px;
-    font-weight: bold;
     font-size: 20px;
   }
 
-  .ctr-box .btn-cal.next {
-    float: right;
-  }
-
-  .ctr-box .btn-cal.next:after {
-    content: '>';
-  }
-
-  .cal-table {
-    width: 100%;
-  }
-
   .cal-table th {
-    width: 14.2857%;
-    padding-bottom: 5px;
     font-size: 16px;
-    font-weight: 900;
   }
 
   .cal-table td {
-    padding: 3px 0;
     height: 48px;
     font-size: 15px;
-    vertical-align: middle;
-  }
-
-  .cal-table td.day {
-    position: relative;
-    cursor: pointer;
-  }
-
-  .cal-table td.today {
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
-    color: #fff;
-  }
-
-  .cal-table td.day-active {
-    background: #14274E;
-    border-radius: 50%;
-    color: #fff;
-  }
-
-  .cal-table td.has-event:after {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 4px;
-    background: #FFC107;
   }
 
   #circle1 {
-    margin: auto;
     width: 8px;
     height: 8px;
-    border-radius: 50%;
-    background-color: #6699CC;
-  }
-
-  #circle2 {
-    margin: auto;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
   }
 
   @media screen and (max-width: 1000px) {
     #secondpage {
       flex-direction: column;
       align-items: center;
+    }
+
+    #my-calendar {
+      position: relative;
+    }
+
+    .tables {
+      margin-left: 0;
     }
   }
 }
