@@ -303,11 +303,13 @@ a {
   display: none;
   font-size: 40px;
   font-family: "logofont";
-  color: rgba(0, 0, 0, 0.1);
+  color: white;
   position: fixed;
   left: 50%;
   top: 48%;
   transform: translate(-50%, 0);
+  transition-property: background-color;
+  transition-duration: 3s;
 }
 
 #over::before {
@@ -321,6 +323,44 @@ a {
   animation: loading 2s ease infinite;
 }
 
+/* 서버에러 */
+#server_error {
+  display: none;
+  width: 600px;
+  height: 400px;
+  box-shadow: 10px 10px 15px rgb(0 0 0 / 20%);
+  z-index: 20;
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 4px;
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  margin-left: 20%;
+  margin-top: 0%;
+  left: 0;
+  right: 0;
+}
+
+#server_error>div {
+  margin-bottom: 30px;
+}
+
+#mainpagebutton {
+  outline: none;
+  background: #14274E;
+  width: 200px;
+  height: 80px;
+  font-size: 30px;
+  border: 0;
+  border-radius: 6px;
+  padding: 12px 20px;
+  padding-top: 14px;
+  color: #FFFFFF;
+  cursor: pointer;
+}
 
 
 /* secondpage(모바일) */
@@ -423,7 +463,6 @@ td {
   font-family: "baiscfont";
   width: 76%;
   margin-top: 8%;
-  padding: 20px 20px 10px;
   text-align: center;
   font-weight: 500;
   cursor: default;
@@ -689,11 +728,12 @@ td {
     margin-bottom: 15px;
     table-layout: fixed;
     width: 550px;
-    margin-top: 0.5%;
+    margin-top: 5%;
   }
 
   /* error alert */
   #server_error {
+    display: none;
     width: 300px;
     height: 200px;
     align-items: center;
@@ -722,8 +762,9 @@ td {
     text-align: center;
     z-index: 3;
     position: sticky;
-    top: 0.5%;
-    margin-top: 0.5%;
+    top: 3%;
+    padding: 20px;
+    margin-top: 3%;
   }
 
   #clicked-date {
@@ -767,6 +808,9 @@ td {
   }
 
   @media screen and (max-width: 1000px) {
+    #tableL{
+      margin-top: 15px;
+    }
     #secondpage {
       flex-direction: column;
       align-items: center;

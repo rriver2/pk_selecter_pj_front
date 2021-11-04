@@ -15,7 +15,6 @@ $(document).ready(function () {
         $(".form-panel.two").removeClass("active");
     });
 });
-document.getElementById("server_error").style.display = "none";
 
 function githubmove() {
     location.href = 'https://github.com/doongu/pk_selecter_pj';
@@ -26,7 +25,7 @@ function gitbookmove() {
 }
 
 function page1() {
-    location.href = 'http://127.0.0.1:5002';
+    window.location.reload();
 }
 
 
@@ -50,19 +49,23 @@ function loginmove() {
             if (json['status'] == 400) {
                 document.getElementById("total").style.display = "block";
                 document.getElementById("over").style.display = "none";
-                document.body.style.backgroundColor = "rgba(0,0,0,0.1)";
+                document.body.style.backgroundColor = "#ebebeb";
                 jQuery('#server_error').show();
+                document.getElementById("server_error").style.display = "flex";
                 document.body.style.lineHeight = "1.6em";
                 document.getElementById("server_error_inner").innerHTML = "비밀번호가 틀렸습니다. <br>다시 입력해 주세요 :)"
 
             } else if (json['status'] == 500) {
                 document.getElementById("total").style.display = "block";
                 document.getElementById("over").style.display = "none";
-                document.body.style.backgroundColor = "rgba(0,0,0,0.1)";
+                document.getElementById("server_error").style.display = "flex";
+                document.body.style.backgroundColor = "#ebebeb";
                 jQuery('#server_error').show();
                 document.body.style.lineHeight = "1.6em";
                 document.getElementById("server_error_inner").innerHTML = "서버 에러가 발생했습니다."
-            } else if (json['status'] == 200) {
+            }
+
+            if (json['status'] == 200) {
                 class Deque {
                     constructor() {
                         this.arr = [];
@@ -142,8 +145,8 @@ function loginmove() {
                  * @param {number} dayIn
                  */
 
-                function loadDate(date, dayIn) {
-                    document.querySelector('.cal-day').textContent = date + " " + init.dayList[dayIn]
+                function loadDate(current_month, date, dayIn) {
+                    document.querySelector('.cal-day').textContent = current_month + "월 " + date + "일 (" + init.dayList[dayIn] + ")";
                 }
 
                 /**
@@ -151,6 +154,7 @@ function loginmove() {
                  */
 
                 let current_month;
+                let current_year;
 
                 function loadYYMM(fullDate) {
                     let yy = fullDate.getFullYear();
@@ -163,21 +167,22 @@ function loginmove() {
                         markToday = init.today.getDate();
                     }
 
-
                     document.querySelector('.cal-month').textContent = init.monList[mm];
                     current_month = mm + 1;
                     document.querySelector('.cal-year').textContent = yy;
 
                     let trtd = '';
+                    let upload_trtd = '';
                     let startCount;
                     let countDay = 0;
-                    let circle_box = '';
+                    let tr_count = 0;
 
                     for (let i = 0; i < 6; i++) {
-                        trtd += '<tr>';
 
+                        trtd += '<tr>';
                         for (let j = 0; j < 7; j++) {
                             if (i === 0 && !startCount && j === firstDay.getDay()) {
+                                console.log(j)
                                 startCount = 1;
                             }
                             if (!startCount) {
@@ -189,23 +194,30 @@ function loginmove() {
                                 trtd += ` data-date="${countDay + 1}" data-fdate="${fullDate}">`;
                             }
                             trtd += (startCount) ? ++countDay : '';
+                            trtd += circle_marked(countDay, yy, startCount);
                             if (countDay === lastDay.getDate()) {
                                 startCount = 0;
+                                tr_count++;
                             }
-                            trtd += circle_marked(countDay);
                             trtd += '</td>';
                         }
                         trtd += '</tr>';
+                        if (tr_count <= 7) {
+                            upload_trtd += trtd;
+                            trtd = "";
+                        }
                     }
-                    $calBody.innerHTML = trtd;
+                    $calBody.innerHTML = upload_trtd;
+                    current_year = yy;
                 }
 
-                function circle_marked(countDay) {
+                function circle_marked(countDay, yy, startCount) {
                     for (let j = 0; j < json['lms_data'].length; j++) {
                         let deadline_before = json['lms_data'][j]['date_deadline'];
                         let deadline_date = deadline_before.substr(8, 2);
                         let deadline_month = deadline_before.substr(5, 2);
-                        if (deadline_date == countDay && deadline_month == current_month) {
+                        let deadline_year = deadline_before.substr(0, 4);
+                        if (deadline_date == countDay && deadline_month == current_month && deadline_year == yy && startCount != 0) {
                             return "<div id = circle1></div>";
                         }
                     }
@@ -220,7 +232,8 @@ function loginmove() {
                         let deadline_before = json['lms_data'][j]['date_deadline'];
                         let deadline_date = deadline_before.substr(8, 2);
                         let deadline_month = deadline_before.substr(5, 2);
-                        if (deadline_date == date && deadline_month == current_month) {
+                        let deadline_year = deadline_before.substr(0, 4);
+                        if (deadline_date == date && deadline_month == current_month && deadline_year == current_year) {
                             Content[j] = document.createElement('div');
                             Content[j].id = 'content'
                             let Subject_name = json['lms_data'][j]['subject_name'].split(']');
@@ -264,7 +277,7 @@ function loginmove() {
                 }
 
                 loadYYMM(init.today);
-                loadDate(init.today.getDate(), init.today.getDay());
+                loadDate(init.today.getMonth(), init.today.getDate(), init.today.getDay());
 
                 $btnNext.addEventListener('click', () => loadYYMM(init.nextMonth()));
                 $btnPrev.addEventListener('click', () => loadYYMM(init.prevMonth()));
@@ -276,7 +289,7 @@ function loginmove() {
                             init.activeDTag.classList.remove('day-active');
                         }
                         let day = Number(e.target.textContent);
-                        loadDate(day, e.target.cellIndex);
+                        loadDate(current_month, day, e.target.cellIndex);
                         removecontexts();
                         loadcontexts(day);
                         e.target.classList.add('day-active');
@@ -461,6 +474,7 @@ function loginmove() {
                     let secondpage = document.getElementById("secondpage");
                     secondpage.style.display = "flex";
                 }
+
             }
 
         })
