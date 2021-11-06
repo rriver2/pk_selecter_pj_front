@@ -728,7 +728,7 @@ td {
     margin-bottom: 15px;
     table-layout: fixed;
     width: 550px;
-    margin-top: 5%;
+    margin-top: 0.5%;
   }
 
   /* error alert */
@@ -762,9 +762,10 @@ td {
     text-align: center;
     z-index: 3;
     position: sticky;
-    top: 3%;
+    /* 고침 */
+    top: 0.5%;
     padding: 20px;
-    margin-top: 3%;
+    margin-top: 0.5%;
   }
 
   #clicked-date {
@@ -819,6 +820,8 @@ td {
     #my-calendar {
       position: relative;
     }
+
+    
 
     .tables {
       margin-left: 0;
