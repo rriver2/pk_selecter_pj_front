@@ -33,7 +33,7 @@
 
 <h2> Document </h2>
 <ul>
-    ::marker
+	&middot;
     <a href="https://doongu.gitbook.io/pk_select/">PKSELECT Gitbook </a>
 </ul>
 
