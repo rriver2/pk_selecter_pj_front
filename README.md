@@ -3,8 +3,11 @@
 ![header](https://capsule-render.vercel.app/api?type=wave&color=auto&height=135&section=header&text=&fontSize=90&fontAlignY=30&)
 
 <h1>Hello, This Project is PKSELECT</h1>
-> pkselect란? 
-기존의 LMS서비스보다 편리하게 미제출 항목를 조회할 수 있도록 돕는 웹사이트<br>
+pkselect란? 기존의 LMS서비스보다 편리하게 미제출 항목를 조회할 수 있도록 돕는 웹사이트<br></br>
+<ul> 이런 경험 있지 않나요?</ul> 
+<p align="center"><img src="./for_readme/lms_problem.gif" width="600" height="294"/></p>
+
+<br></br>
 
 
 <br></br>
@@ -13,7 +16,7 @@
 <ul> &middot; 캘린더의 날짜 선택 시 해당 날이 마감일인 미제출 항목을 확인할 수 있어요</ul>
 <ul> &middot; 테이블을 통해 마감기한이 임박한 순으로 미제출된 강의, 과제, 시험 별로 확인할 수 있어요 </ul>
 
-<p align="center"><img src="./gif_for_read-me/pkselect_secondpage.png" width="600" height="400"/></p>
+<p align="center"><img src="./for_readme/pkselect_secondpage.png" width="600" height="400"/></p>
 
 
 
