@@ -3,7 +3,8 @@
 ![header](https://capsule-render.vercel.app/api?type=wave&color=auto&height=135&section=header&text=&fontSize=90&fontAlignY=30&)
 
 <h1>Hello, This Project is PKSELECT</h1>
-**pkselect란?** 기존의 LMS서비스보다 편리하게 미제출 항목를 조회할 수 있도록 돕는 웹사이트<br>
+> pkselect란? 
+기존의 LMS서비스보다 편리하게 미제출 항목를 조회할 수 있도록 돕는 웹사이트<br>
 
 
 <br></br>
@@ -48,8 +49,3 @@ Leader|한준규|Project Manager, BackEnd Develope|must1080@naver.com|<a href="h
 Team|오하람|Project Sub Manager|5gkfka5@naver.com|<a href="https://github.com/Haram0111"><img src="http://img.shields.io/badge/Haram0111-655ced?style=social&logo=github&color=informational" style="height : auto; margin-left : 10px; margin-right : 10px;"/>
 Team|이가은|Frontend Develope|rriver2@naver.com|<a href="https://github.com/rriver2"><img src="http://img.shields.io/badge/rriver2-655ced?style=social&logo=github&color=informational" style="height : auto; margin-left : 10px; margin-right : 10px;"/>
 Team|박민서|Frontend Develope|maphchbiea78@gmail.com|<a href="https://github.com/Verus0"><img src="http://img.shields.io/badge/Verus0-655ced?style=social&logo=github&color=informational" style="height : auto; margin-left : 10px; margin-right : 10px;"/>
-
-
-
-<br></br>
-![header](https://capsule-render.vercel.app/api?type=wave&color=auto&height=135&section=footer&fontSize=90)
