@@ -5,7 +5,7 @@
 <h1>Hello, This Project is pk_selecter</h1>
 <h6> 이런 경험 있지 않나요? </h6>
 
-<p align="center"><img src="./gif_for_read-me/lms_problem.gif" width="600" height="294"/></p>
+<p align="center"><img src="./gif_for_read-me/pkselect_secondpage.png" width="600" height="294"/></p>
 
 <br></br>
 
