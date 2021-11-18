@@ -7,7 +7,7 @@ $(document).ready(function () {
             $(".form-panel.two").addClass("hidden");
             $(".form-panel.two").addClass("active");
         });
-
+        
     $(".form-toggle").on("click", function (e) {
         e.preventDefault();
         $(this).removeClass("visible");
