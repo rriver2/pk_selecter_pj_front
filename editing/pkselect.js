@@ -15,13 +15,13 @@ json = {
             "subject_name": "[가상]과제구현및평가(캡스톤디자인Ⅱ)(105)",
             "class": "과제",
             "context": "학술발표논문제출(10월17일까지)",
-            "date_deadline": "2021.11.17 오후 11:59"
+            "date_deadline": "2021.11.24 오후 11:59"
         },
         {
             "subject_name": "[가상]데이터베이스(101)",
             "class": "수업",
             "context": "1차시 DB01-1",
-            "date_deadline": "2021.09.07 오후 11:59"
+            "date_deadline": "2021.11.24 오후 11:59"
         },
         {
             "subject_name": "[가상]데이터베이스응용(102)",
@@ -69,25 +69,25 @@ json = {
             "subject_name": "[가상]시스템프로그래밍(102)",
             "class": "수업",
             "context": "1차시 write() System Call",
-            "date_deadline": "2021.11.13 오후 11:59"
+            "date_deadline": "2021.11.23 오후 11:59"
         },
         {
             "subject_name": "[가상]시스템프로그래밍(102)",
             "class": "수업",
             "context": "2차시 Delayed writing",
-            "date_deadline": "2021.11.13 오후 11:59"
+            "date_deadline": "2021.11.25 오후 11:59"
         },
         {
             "subject_name": "[가상]시스템프로그래밍(102)",
             "class": "수업",
             "context": "5주 3차시 보강 I/O Synchronization",
-            "date_deadline": "2021.11.13 오후 11:59"
+            "date_deadline": "2021.11.21 오후 11:59"
         },
         {
             "subject_name": "[가상]프로그래밍언어론(101)",
             "class": "과제",
             "context": "프로그래밍언어론 Assignment#1",
-            "date_deadline": "2021.11.13 오후 11:59"
+            "date_deadline": "2021.11.23 오후 11:59"
         }
     ]
 }
@@ -148,7 +148,7 @@ function ShowLoadingPage() {
     document.body.style.lineHeight = "100px";
 }
 
-
+loginmove();
 
 function loginmove() {
     // fetch("/login", {
@@ -236,7 +236,6 @@ function loginmove() {
             if (mm === init.today.getMonth() && yy === init.today.getFullYear()) {
                 markToday = init.today.getDate();
             }
-
             document.querySelector('.cal-month').textContent = init.monList[mm];
             current_month = mm + 1;
             document.querySelector('.cal-year').textContent = yy;
@@ -506,6 +505,7 @@ function loginmove() {
             }
         }
 
+       
 
         for (let i = 0; i < 3; i++) {
             //lms_data 길이 (열), 3행
@@ -546,6 +546,32 @@ function loginmove() {
                             let deadline = answer[i][k]['date_deadline'].split(' ')
                             td[k][2].innerHTML = deadline[0] + "<br>" + deadline[1] + " " + deadline[2];
                         }
+
+                        function getToday() {
+                            var date = new Date();
+                            var year = date.getFullYear();
+                            var month = ("0" + (1 + date.getMonth())).slice(-2);
+                            var day = ("0" + date.getDate()).slice(-2);
+                
+                            return year + "." + month + "." + day;
+                        }
+                        let today = getToday();
+                        
+                        let compareanswertoday = answer[i][k]['date_deadline'].split(' ');
+                        let middlestep = compareanswertoday[0].split('.');
+                        let compareanswertomorrow = middlestep[0]+"."+middlestep[1]+"."+(parseInt(middlestep[2])+1);
+                       
+                        if(today === compareanswertoday[0] || today === compareanswertomorrow){
+                            marktodayitem(td[k][1],td[k][2]);
+                        }
+                        function marktodayitem(task,date){
+                            // td[k][1],td[k][2]
+                            task.style.color = `var(--color-${Table[i][4]})`;
+                            task.style.fontWeight = "bold";
+                            date.style.color = `var(--color-${Table[i][4]})`;
+                            date.style.fontWeight = "bold";
+                        }
+                    
                         document.getElementById(Table[i][4]).appendChild(row_1[k]);
                         for (let p = 0; p < 3; p++) {
                             row_1[k].appendChild(td[k][p]);

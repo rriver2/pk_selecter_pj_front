@@ -9,8 +9,12 @@
   --color-black: #000000;
   --color-tableeven: #ffffff;
   --color-tableodd: #fafafa;
+  --color-tableL: #264a94;
+  --color-tableHW: #4b8050;
+  --color-tableT: #b54c3c;
   /* size */
 }
+
 html {
   width: 100%;
   height: 100%;
@@ -417,17 +421,17 @@ td {
 }
 
 #tableL th {
-  background-color: #264a94;
+  background-color: var(--color-tableL);
   color: var(--color-white);
 }
 
 #tableHW th {
-  background-color: #4b8050;
+  background-color: var(--color-tableHW);
   color: var(--color-white);
 }
 
 #tableT th {
-  background-color: #b54c3c;
+  background-color: var(--color-tableT);
   color: var(--color-white);
 }
 
