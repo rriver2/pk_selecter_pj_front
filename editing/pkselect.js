@@ -148,6 +148,24 @@ function ShowLoadingPage() {
     document.body.style.lineHeight = "100px";
 }
 
+// delectBtn = document.querySelector(".delectBtn");
+// classfilterBtn = document.querySelector(".classfilterBtn");
+// ddayBtn = document.querySelector(".ddayBtn");
+
+// delectBtn.addEventListener('click', () => ondelectBtnClick());
+
+// function ondelectBtnClick() {
+//     let today = getToday();
+
+//     let compareanswertoday = json['lms_data']['date_deadline'].split(' ');
+//     let middlestep = compareanswertoday[0].split('.');
+
+//     json = json['lms_data'];
+//     json = json.filter((json['date_deadline']));
+// }
+
+
+
 loginmove();
 
 function loginmove() {
@@ -390,7 +408,6 @@ function loginmove() {
             }
         }
 
-        showCalender(json);
         let Table = Array.from(Array(3), () => new Array(5));
         Table[0][0] = "수업"
         Table[0][1] = "수강 과목"
@@ -505,7 +522,7 @@ function loginmove() {
             }
         }
 
-       
+
 
         for (let i = 0; i < 3; i++) {
             //lms_data 길이 (열), 3행
@@ -552,26 +569,27 @@ function loginmove() {
                             var year = date.getFullYear();
                             var month = ("0" + (1 + date.getMonth())).slice(-2);
                             var day = ("0" + date.getDate()).slice(-2);
-                
+
                             return year + "." + month + "." + day;
                         }
                         let today = getToday();
-                        
+
                         let compareanswertoday = answer[i][k]['date_deadline'].split(' ');
                         let middlestep = compareanswertoday[0].split('.');
-                        let compareanswertomorrow = middlestep[0]+"."+middlestep[1]+"."+(parseInt(middlestep[2])+1);
-                       
-                        if(today === compareanswertoday[0] || today === compareanswertomorrow){
-                            marktodayitem(td[k][1],td[k][2]);
+                        let compareanswertomorrow = middlestep[0] + "." + middlestep[1] + "." + (parseInt(middlestep[2]) + 1);
+
+                        if (today === compareanswertoday[0] || today === compareanswertomorrow) {
+                            marktodayitem(td[k][1], td[k][2]);
                         }
-                        function marktodayitem(task,date){
+
+                        function marktodayitem(task, date) {
                             // td[k][1],td[k][2]
                             task.style.color = `var(--color-${Table[i][4]})`;
                             task.style.fontWeight = "bold";
                             date.style.color = `var(--color-${Table[i][4]})`;
                             date.style.fontWeight = "bold";
                         }
-                    
+
                         document.getElementById(Table[i][4]).appendChild(row_1[k]);
                         for (let p = 0; p < 3; p++) {
                             row_1[k].appendChild(td[k][p]);
