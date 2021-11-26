@@ -15,7 +15,7 @@ json = {
             "subject_name": "[가상]과제구현및평가(캡스톤디자인Ⅱ)(105)",
             "class": "과제",
             "context": "학술발표논문제출(10월17일까지)",
-            "date_deadline": "2021.11.24 오후 11:59"
+            "date_deadline": "2021.11.25 오후 11:59"
         },
         {
             "subject_name": "[가상]데이터베이스(101)",
@@ -33,13 +33,13 @@ json = {
             "subject_name": "[가상]데이터베이스응용(102)",
             "class": "수업",
             "context": "2차시 교재 3~4장 복습 (실습부분)",
-            "date_deadline": "2021.11.12 오후 11:59"
+            "date_deadline": "2021.11.26 오후 11:59"
         },
         {
             "subject_name": "[가상]데이터베이스응용(102)",
             "class": "수업",
             "context": "3차시 교재 3~4장 복습 (실습부분)",
-            "date_deadline": "2021.11.12 오후 11:59"
+            "date_deadline": "2021.11.26 오후 11:59"
         },
         {
             "subject_name": "[가상]데이터베이스응용(102)",
@@ -51,19 +51,25 @@ json = {
             "subject_name": "[가상]데이터베이스응용(102)",
             "class": "시험",
             "context": "5장 정리 퀴즈",
-            "date_deadline": "2021.11.13 오후 11:59, 10 분"
+            "date_deadline": "2021.11.26 오후 11:59, 10 분"
+        },
+        {
+            "subject_name": "[가상]데이터베이스응용(102)",
+            "class": "시험",
+            "context": "5장 정리 퀴즈",
+            "date_deadline": "2021.11.27 오후 11:59, 10 분"
         },
         {
             "subject_name": "[가상]리눅스프로그래밍(101)",
             "class": "수업",
             "context": "1차시 3장 파일과 디렉토리 (1)",
-            "date_deadline": "2021.11.18 오후 11:59"
+            "date_deadline": "2021.11.27 오후 11:59"
         },
         {
             "subject_name": "[가상]리눅스프로그래밍(101)",
             "class": "과제",
             "context": "3장 파일과 디렉토리 (1)",
-            "date_deadline": "2021.11.17 오후 11:59"
+            "date_deadline": "2021.11.27 오후 11:59"
         },
         {
             "subject_name": "[가상]시스템프로그래밍(102)",
@@ -87,7 +93,7 @@ json = {
             "subject_name": "[가상]프로그래밍언어론(101)",
             "class": "과제",
             "context": "프로그래밍언어론 Assignment#1",
-            "date_deadline": "2021.11.23 오후 11:59"
+            "date_deadline": "2021.11.26 오후 11:59"
         }
     ]
 }
@@ -147,23 +153,6 @@ function ShowLoadingPage() {
     document.body.style.backgroundColor = "white";
     document.body.style.lineHeight = "100px";
 }
-
-// delectBtn = document.querySelector(".delectBtn");
-// classfilterBtn = document.querySelector(".classfilterBtn");
-// ddayBtn = document.querySelector(".ddayBtn");
-
-// delectBtn.addEventListener('click', () => ondelectBtnClick());
-
-// function ondelectBtnClick() {
-//     let today = getToday();
-
-//     let compareanswertoday = json['lms_data']['date_deadline'].split(' ');
-//     let middlestep = compareanswertoday[0].split('.');
-
-//     json = json['lms_data'];
-//     json = json.filter((json['date_deadline']));
-// }
-
 
 
 loginmove();
@@ -576,14 +565,12 @@ function loginmove() {
 
                         let compareanswertoday = answer[i][k]['date_deadline'].split(' ');
                         let middlestep = compareanswertoday[0].split('.');
-                        let compareanswertomorrow = middlestep[0] + "." + middlestep[1] + "." + (parseInt(middlestep[2]) + 1);
-
+                        let compareanswertomorrow = middlestep[0] + "." + middlestep[1] + "." + (parseInt(middlestep[2]) - 1);
                         if (today === compareanswertoday[0] || today === compareanswertomorrow) {
                             marktodayitem(td[k][1], td[k][2]);
                         }
 
                         function marktodayitem(task, date) {
-                            // td[k][1],td[k][2]
                             task.style.color = `var(--color-${Table[i][4]})`;
                             task.style.fontWeight = "bold";
                             date.style.color = `var(--color-${Table[i][4]})`;
