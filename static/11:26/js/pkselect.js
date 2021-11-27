@@ -1,5 +1,3 @@
-//삭제하기
-loginmove();
 $(document).ready(function () {
     $(".form-panel.two")
         .not(".form-panel.two.active")
