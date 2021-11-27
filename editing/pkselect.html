@@ -18,8 +18,12 @@
 	<meta property="og:image" content="{{ url_for('static', filename='static/logo.png' ) }}">
 	<title>pkselect</title>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<link rel='stylesheet' href={{ url_for('static', filename='css/pkselect.css' ) }}>
-	<script src={{ url_for('static', filename='js/pkselect.js' ) }}></script>
+	<!-- <link rel='stylesheet' href={{ url_for('static', filename='css/pkselect.css' ) }}>
+	<script src={{ url_for('static', filename='js/pkselect.js' ) }}></script> -->
+
+	<link rel='stylesheet' href="pkselect.css">
+	<script src="pkselect.js"></script>
+
 </head>
 
 <body>
@@ -127,6 +131,6 @@
 		</div>
 	</div>
 </body>
-<script src={{ url_for('static', filename='js/pkselect.js' ) }}></script>
-
+<!-- <script src={{ url_for('static', filename='js/pkselect.js' ) }}></script> -->
+<script src="pkselect.js"></script>
 </html>

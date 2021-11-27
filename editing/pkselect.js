@@ -364,19 +364,112 @@ function marktodayitem(task, date) {
 }
 
 function loginmove() {
-    showLoadingPage();
-    fetch("/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                pk_user_id: document.getElementById("username").value,
-                pk_user_pw: document.getElementById("password").value,
-            }),
-        }).then((response => response.json()))
-        .then(data => {
-            if (data['status'] == 400) {
+//     showLoadingPage();
+//     fetch("/login", {
+//             method: "POST",
+//             headers: {
+//                 "Content-Type": "application/json",
+//             },
+//             body: JSON.stringify({
+//                 pk_user_id: document.getElementById("username").value,
+//                 pk_user_pw: document.getElementById("password").value,
+//             }),
+//         }).then((response => response.json()))
+//         .then(data => {
+    var data = {
+        "status": 200,
+        "subject": [
+          "[가상]과제구현및평가(캡스톤디자인Ⅱ)(105)",
+          "[가상]데이터베이스(101)",
+          "[가상]데이터베이스응용(102)",
+          "[가상]데이터처리Ⅱ(102)",
+          "[가상]리눅스프로그래밍(101)",
+          "[가상]소프트웨어공학(102)",
+          "[가상]시스템프로그래밍(102)",
+          "[가상]프로그래밍언어론(101)",
+          "[부경대]2021RUN&LEARN부경팀프로젝트(01)"
+        ],
+        "lms_data": [{
+            "subject_name": "[가상]시스템프로그래밍(102)",
+            "class": "수업",
+            "context": "1차시 write() System Call",
+            "date_deadline": "2021.10.13 오후 11:59"
+          },
+          {
+            "subject_name": "[가상]과제구현및평가(캡스톤디자인Ⅱ)(105)",
+            "class": "과제",
+            "context": "학술발표논문제출(10월17일까지)",
+            "date_deadline": "2021.10.17 오후 11:59"
+          },
+          {
+            "subject_name": "[가상]데이터베이스(101)",
+            "class": "수업",
+            "context": "1차시 DB01-1",
+            "date_deadline": "2021.09.07 오후 11:59"
+          },
+          {
+            "subject_name": "[가상]데이터베이스응용(102)",
+            "class": "수업",
+            "context": "1차시 교재 5 장. ER을 이용한 데이터 모델링 (이론부분)",
+            "date_deadline": "2021.10.12 오후 11:59"
+          },
+          {
+            "subject_name": "[가상]데이터베이스응용(102)",
+            "class": "수업",
+            "context": "2차시 교재 3~4장 복습 (실습부분)",
+            "date_deadline": "2021.10.12 오후 11:59"
+          },
+          {
+            "subject_name": "[가상]데이터베이스응용(102)",
+            "class": "수업",
+            "context": "3차시 교재 3~4장 복습 (실습부분)",
+            "date_deadline": "2021.10.12 오후 11:59"
+          },
+          {
+            "subject_name": "[가상]데이터베이스응용(102)",
+            "class": "과제",
+            "context": "6주차 과제",
+            "date_deadline": "2021.10.13 오후 11:59"
+          },
+          {
+            "subject_name": "[가상]데이터베이스응용(102)",
+            "class": "시험",
+            "context": "5장 정리 퀴즈",
+            "date_deadline": "2021.10.13 오후 11:59, 10분"
+          },
+          {
+            "subject_name": "[가상]리눅스프로그래밍(101)",
+            "class": "수업",
+            "context": "1차시 3장 파일과 디렉토리 (1)",
+            "date_deadline": "2021.10.18 오후 11:59"
+          },
+          {
+            "subject_name": "[가상]리눅스프로그래밍(101)",
+            "class": "과제",
+            "context": "3장 파일과 디렉토리 (1)",
+            "date_deadline": "2021.10.17 오후 11:59"
+          },
+          {
+            "subject_name": "[가상]시스템프로그래밍(102)",
+            "class": "수업",
+            "context": "2차시 Delayed writing",
+            "date_deadline": "2021.10.13 오후 11:59"
+          },
+          {
+            "subject_name": "[가상]시스템프로그래밍(102)",
+            "class": "수업",
+            "context": "5주 3차시 보강 I/O Synchronization",
+            "date_deadline": "2021.10.13 오후 11:59"
+          },
+          {
+            "subject_name": "[가상]프로그래밍언어론(101)",
+            "class": "과제",
+            "context": "프로그래밍언어론 Assignment#1",
+            "date_deadline": "2021.10.13 오후 11:59"
+          }
+        ]
+      }; 
+          if (data['status'] == 400) {
                 alertError400();
             } else if (data['status'] == 500) {
                 alertError500();
@@ -605,5 +698,5 @@ function loginmove() {
                 let delectedData = delectTabledata();
                 loadTable(delectedData, 5);
             }
-        })
+//         })
 }

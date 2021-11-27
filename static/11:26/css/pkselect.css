@@ -425,6 +425,12 @@ section.buttons {
 }
 
 /* table(모바일) */
+.delectTabledata_subject,
+.tabledata_subject,
+.delectTabledata_catagory{
+  display: none;
+}
+
 table {
   font-family: inherit;
   word-break: break-all;
@@ -471,6 +477,11 @@ td {
 #delectTabledata_tableT th {
   background-color: var(--color-tableT);
   color: var(--color-white);
+}
+
+.tabledata_subject th,
+.delectTabledata_subject th{
+  background-color: var(--color-calendar-marktaskday);
 }
 
 .tables tr:nth-child(even) {
