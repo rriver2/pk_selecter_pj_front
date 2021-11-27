@@ -427,7 +427,7 @@ section.buttons {
 /* table(모바일) */
 .delectTabledata_subject,
 .tabledata_subject,
-.delectTabledata_catagory{
+.delectTabledata_catagory {
   display: none;
 }
 
@@ -480,7 +480,7 @@ td {
 }
 
 .tabledata_subject th,
-.delectTabledata_subject th{
+.delectTabledata_subject th {
   background-color: var(--color-calendar-marktaskday);
 }
 
