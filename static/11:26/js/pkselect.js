@@ -371,7 +371,7 @@ function arrangetablebycategory(data) {
 
 
 
-function showtablebycategory(answer, T, datatype) {
+function showtablebycategory(answer, T, datatype,category) {
 
     let row_1 = new Array(10000);
     let row
@@ -413,7 +413,7 @@ function showtablebycategory(answer, T, datatype) {
                     td[k][0].innerHTML = putfirstcolumn(k, answer[i]);
 
                     if (answer[i][k]['class'] == '시험') {
-                        let Test_deadline_after = extractTestDeadline(k, category);
+                        let Test_deadline_after = extractTestDeadline(answer[i][k]['date_deadline']);
                         td[k][1].innerHTML = Test_deadline_after[1];
                         td[k][2].innerHTML = putthirdcolumn(Test_deadline_after[0]);
                     } else {
@@ -439,9 +439,9 @@ function showtablebycategory(answer, T, datatype) {
     }
 }
 
-function loadcatagoryTable(data, datatype, T) {
+function loadcatagoryTable(data, datatype, T,category) {
     let answer = arrangetablebycategory(data);
-    showtablebycategory(answer, T, datatype);
+    showtablebycategory(answer, T, datatype,category);
 }
 
 function delectTabledata(data) {
@@ -483,9 +483,9 @@ function putfirstcolumn(k, category) {
     }
 }
 
-function extractTestDeadline(k, category) {
-    let Test_deadline_before = category[k]['date_deadline'];
-    return Test_deadline_before.split(', ');
+function extractTestDeadline(date_deadline) {
+    let Test_deadline = date_deadline.split(', ');
+    return Test_deadline;
 }
 
 function putthirdcolumn(date_deadline) {
@@ -732,8 +732,8 @@ function loginmove() {
 
                 makeTableBonebycategory("tabledata");
                 makeTableBonebycategory("delectTabledata");
-                loadcatagoryTable(tabledata, 4, T);
-                loadcatagoryTable(delectedData, 5, T);
+                loadcatagoryTable(tabledata, 4, T,"tabledata");
+                loadcatagoryTable(delectedData, 5, T,"delectTabledata");
 
 
                 makeTableBonebysubject("tabledata", data['subject']);
