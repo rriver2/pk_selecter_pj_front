@@ -1,3 +1,5 @@
+//삭제하기
+loginmove();
 $(document).ready(function () {
     $(".form-panel.two")
         .not(".form-panel.two.active")
@@ -15,6 +17,29 @@ $(document).ready(function () {
         $(".form-panel.two").removeClass("active");
     });
 });
+makeTableBone("tabledata");
+makeTableBone("delectTabledata");
+
+function makeTableBone(datatype) {
+    makeTableBonetable(datatype, "tableL", "미완료 강의");
+    makeTableBonetable(datatype, "tableHW", "미제출 과제");
+    makeTableBonetable(datatype, "tableT", "미제출 시험");
+}
+
+function makeTableBonetable(datatype, tabletype, tabletitle) {
+    var table = document.createElement('table');
+    table.id = `${datatype}_${tabletype}`; 
+    table.className = `${datatype}`; 
+    var tbody = document.createElement('tbody');
+    var tr = document.createElement('tr');
+    var th = document.createElement('th');
+    th.id = "table_top";
+    th.innerHTML = `${tabletitle}`; 
+    tr.appendChild(th);
+    tbody.appendChild(tr);
+    table.appendChild(tbody);
+    document.querySelector(".tablebone").appendChild(table);
+}
 
 function githubmove() {
     location.href = 'https://github.com/doongu/pk_selecter_pj';
@@ -29,6 +54,8 @@ function page1() {
 }
 
 var delectBtnshow = 0;
+jQuery('.delectTabledata').hide();
+
 function delectBtnonclick() {
     const delectBtn = document.querySelector('.delectBtn');
     if (delectBtnshow == 1) {
@@ -45,6 +72,7 @@ function delectBtnonclick() {
 }
 
 var classfilterBtnshow = 0;
+
 function classfilterBtnonclick() {
     const delectBtn = document.querySelector('.classfilterBtn');
     if (classfilterBtnshow == 1) {
@@ -57,15 +85,35 @@ function classfilterBtnonclick() {
 }
 
 var ddayBtnshow = 0;
+
 function ddayBtnonclick() {
     const delectBtn = document.querySelector('.ddayBtn');
     if (ddayBtnshow == 1) {
-        delectBtn.innerHTML = "며칠.."
+        let Dday = getDday();
+        delectBtn.style.backgroundColor = 'var(--color-white)';
+        delectBtn.style.color = 'var(--color-black)';
+        delectBtn.style.border = "2px solid var(--color-Basic-navy)";
+        if (Dday >= 10) {
+            delectBtn.innerHTML = `D - ${Dday}`;
+        } else {
+            delectBtn.innerHTML = `!! D - ${Dday} !!`;
+        }
         ddayBtnshow = 0;
     } else {
+        delectBtn.style.backgroundColor = 'var(--color-Basic-navy)';
+        delectBtn.style.color = 'var(--color-white)';
+        delectBtn.style.border = "0";
         delectBtn.innerHTML = "종강 D-Day";
         ddayBtnshow = 1;
     }
+}
+
+function getDday() {
+    let today = new Date();
+    let dday = new Date(2021, 12, 22);
+    let gap = dday.getTime() - today.getTime();
+    let result = Math.ceil(gap / (1000 * 60 * 60 * 24));
+    return result;
 }
 
 function showLoadingPage() {
@@ -317,9 +365,6 @@ function marktodayitem(task, date) {
     date.style.fontWeight = "bold";
 }
 
-// 삭제
-loginmove();
-
 function loginmove() {
     showLoadingPage();
     fetch("/login", {
@@ -538,9 +583,7 @@ function loginmove() {
                 /*======테이블=======*/
                 let T = makeTableTitle();
                 let tabledata = data['lms_data']
-                loadTable(tabledata,4);
-                const delectBtn = document.querySelector('.delectBtn');
-                delectBtn.innerHTML = "마감기한 지난 항목 삭제하기";
+                loadTable(tabledata, 4);
 
 
                 function loadTable(data, datatype) {
@@ -554,7 +597,7 @@ function loginmove() {
                     let delectedData = new Array(0);
                     for (let i = 0; i < tabledata.length; i++) {
                         let delectedDataDate = tabledata[i]['date_deadline'].split(' ')[0];
-                        if (tabledata[i]['date_deadline'].split(' ')[0] >= today) {
+                        if (delectedDataDate >= today) {
                             delectedData.push(tabledata[i]);
                         }
                     }
@@ -562,7 +605,7 @@ function loginmove() {
                 }
 
                 let delectedData = delectTabledata();
-                loadTable(delectedData,5);
+                loadTable(delectedData, 5);
             }
         })
 }
