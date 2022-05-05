@@ -4,38 +4,38 @@
 
 <h1>Hello, This Project is PKSELECT</h1>
 <h3>기존의 LMS서비스보다 편리하게 미제출 항목를 조회할 수 있도록 돕는 웹사이트</h3>
-<h2> 왜 필요한가요? </h2>
-<ul> 미완료된 강의와 시험을 확인하기 위해 과목마다 들어가보신 적 없으신가요?</ul>
-<p align="center"><img src="./for_readme/lms_problem.gif" width="600" height="294"/></p>
 <br></br>
 
-<h2> PKSLECT에 로그인만 하세요 </h2>
-<ul> &middot; 캘린더의 날짜 선택 시 해당 날이 마감일인 미제출 항목을 확인할 수 있어요</ul>
-<ul> &middot; 테이블을 통해 마감기한이 임박한 순으로 미제출된 강의, 과제, 시험 별로 확인할 수 있어요 </ul>
 
-<p align="center"><img src="./for_readme/pkselect_secondpage.png" width="600" height="400"/></p>
+<h2> PKSLECT  </h2>
+<p></p>
 
+<p align="center">
+<img width="696" alt="스크린샷 2022-05-05 오후 3 50 01" src="https://user-images.githubusercontent.com/82457928/166874886-0706159d-5f50-4eac-ae1e-3d3beb97bf33.png">
+<img width="681" alt="스크린샷 2022-05-05 오후 3 50 06" src="https://user-images.githubusercontent.com/82457928/166874893-9efb71c8-90b6-43e5-8e17-62cbb2b9fb28.png">
+<img width="745" alt="스크린샷 2022-05-05 오후 3 50 14" src="https://user-images.githubusercontent.com/82457928/166874895-a601a91d-174c-4b63-aa34-4c5e7fe10e88.png">
 
 
  <br></br>
-<h2> 어떻게 만들었나요? </h2>
-<ul>
-    컴퓨터공학과 4명에서 만들었어요. 비대면이 끝나면 이 프로젝트도 사라지겠지만 그 전에 열심히 해볼게요 !
-</ul>
  <p align = "center"><img src="https://img.shields.io/badge/Flask-3766AB?style=for-the-badge&logo=Flask&logoColor=white"/></a> </a>&nbsp <img src="https://img.shields.io/badge/JavaScript-3766AB?style=for-the-badge&logo=JavaScript&logoColor=white"/></a> </a>&nbsp<img src="https://img.shields.io/badge/AWS-3766AB?style=for-the-badge&logo=AWS&logoColor=white"/></p>
 
  <br></br>
+ </p>
+ <p align="center">
+<h4>PC version</h4>
+<img width="657" alt="스크린샷 2022-05-05 오후 3 52 36" src="https://user-images.githubusercontent.com/82457928/166875112-2f4adb28-7168-4c54-a33a-6b1d27cfd891.png">
 
-<h2> 개인정보가 유출 되나요? </h2>
-<ul>
-    https로 네트워크시 전달되는 데이터가 암호화되어져요 ! 그리고 저희는 DB에 저장하지 않고 단순히 조회만 하고 끝내요 !
-</ul>
-<br></br>
+<h4>Mobile version</h4>
+<img width="747" alt="스크린샷 2022-05-05 오후 3 52 24" src="https://user-images.githubusercontent.com/82457928/166875120-4e80f395-2718-46de-8b2a-fc9814632767.png">
+
+</p>
 
 <h2> Document </h2>
 <ul>
 	&middot;
     <a href="https://doongu.gitbook.io/pk_select/">PKSELECT Gitbook </a>
+	
+gitBook에서 프로젝트와 관련된 자세한 내용을 확인할 수 있습니다 !
 </ul>
 <br></br>
 
