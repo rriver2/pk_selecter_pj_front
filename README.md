@@ -1,12 +1,11 @@
 
  <br></br>
   <br></br>
-<p align="center">
-<img width="696" alt="스크린샷 2022-05-05 오후 3 50 01" src="https://user-images.githubusercontent.com/82457928/166874886-0706159d-5f50-4eac-ae1e-3d3beb97bf33.png">
-<img width="681" alt="스크린샷 2022-05-05 오후 3 50 06" src="https://user-images.githubusercontent.com/82457928/166874893-9efb71c8-90b6-43e5-8e17-62cbb2b9fb28.png">
-<img width="745" alt="스크린샷 2022-05-05 오후 3 50 14" src="https://user-images.githubusercontent.com/82457928/166874895-a601a91d-174c-4b63-aa34-4c5e7fe10e88.png">
-</p>
+  
+  ![pkselect-1 2](https://user-images.githubusercontent.com/82457928/166879369-61cb268e-29c9-454c-992e-0242bd2e134a.jpg)
+![pkselect-2 2](https://user-images.githubusercontent.com/82457928/166879373-8afdc12e-e84c-4abc-b475-bb6dea40f3a6.jpg)
 
+  
  <br></br>
  
 <h4>PC version</h4>
