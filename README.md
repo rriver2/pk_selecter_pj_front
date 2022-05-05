@@ -1,10 +1,9 @@
+<br></br>
 
- <br></br>
-  <br></br>
-  
-  ![pkselect-1 2](https://user-images.githubusercontent.com/82457928/166879369-61cb268e-29c9-454c-992e-0242bd2e134a.jpg)
-![pkselect-2 2](https://user-images.githubusercontent.com/82457928/166879373-8afdc12e-e84c-4abc-b475-bb6dea40f3a6.jpg)
-
+<p align="center">
+  <img width="650" alt="스크린샷 2022-05-05 오후 3 52 36" src="https://user-images.githubusercontent.com/82457928/166879369-61cb268e-29c9-454c-992e-0242bd2e134a.jpg">
+   <img width="650" alt="스크린샷 2022-05-05 오후 3 52 36" src="https://user-images.githubusercontent.com/82457928/166879373-8afdc12e-e84c-4abc-b475-bb6dea40f3a6.jpg">
+</p>
   
  <br></br>
  
